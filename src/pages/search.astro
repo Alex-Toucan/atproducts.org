@@ -42,7 +42,13 @@ import BackToTop from '../components/BackToTop.astro';
                     </div>
                 </div>
             </div>
-            <!-- Add more cards as needed -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <a href="#"><h5 class="card-title">Example Game</h5></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -53,8 +59,8 @@ import BackToTop from '../components/BackToTop.astro';
 </div>
 <Scripts />
 <script is:inline>
-document.getElementById('fullScreenBtn').addEventListener('click', function() {
-    let elem = document.getElementById('full-screen');
+$('#fullScreenBtn').on('click', function() {
+    let elem = $('#full-screen')[0];
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { // Firefox
@@ -65,5 +71,4 @@ document.getElementById('fullScreenBtn').addEventListener('click', function() {
         elem.msRequestFullscreen();
     }
 });
-
 </script>

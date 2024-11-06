@@ -4,6 +4,7 @@ import Scripts from '../layouts/Scripts.astro';
 import Navbar    from '../components/Navbar.astro';
 import Footer    from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
+import GamePage from '../layouts/games/GamePage.astro';
 ---
 
 <Head title="Blank Canvas" description="This page is used as a blank canvas for our web-devs to use for testing new elements." author="Alex Toucan"/>
@@ -12,11 +13,12 @@ import BackToTop from '../components/BackToTop.astro';
   <div id="main-content">
     <main id="canvas">
     <div class="container mt-5">
-        <button class="btn btn-primary" id="fullScreenBtn">Go Full Screen</button>
-        <div id="full-screen" class="mt-3 p-3 border">
-            <h2>Game Area</h2>
-            <p>This is the area that will go full screen.</p>
-        </div>
+      <GamePage title="Game Example">
+        <Fragment slot="game-slot">
+          <h2>Game Area</h2>
+          <p>This is the area that will go full screen.</p>
+        </Fragment>
+      </GamePage>
     </div>
     </main>
     <Footer />

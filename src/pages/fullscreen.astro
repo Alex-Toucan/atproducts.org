@@ -10,16 +10,14 @@ import GamePage from '../layouts/games/GamePage.astro';
 <Head title="Blank Canvas" description="This page is used as a blank canvas for our web-devs to use for testing new elements." author="Alex Toucan"/>
 <div id="page">
   <Navbar />
-  <div id="main-content">
+  <div id="main-content class="container">
     <main id="canvas">
-    <div class="container mt-5">
       <GamePage title="Game Example">
         <Fragment slot="game-slot">
           <h2>Game Area</h2>
           <p>This is the area that will go full screen.</p>
         </Fragment>
       </GamePage>
-    </div>
     </main>
     <Footer />
   </div>

@@ -1,0 +1,69 @@
+---
+import Head from '../../layouts/Head.astro';
+import Scripts from '../../layouts/Scripts.astro';
+import Navbar    from '../../components/Navbar.astro';
+import Footer    from '../../components/Footer.astro';
+import BackToTop from '../../components/BackToTop.astro';
+---
+
+<Head title="Blank Canvas" description="This page is used as a blank canvas for our web-devs to use for testing new elements." author="Alex Toucan"/>
+<div id="page">
+  <Navbar />
+  <div id="main-content">
+    <main id="canvas">
+    <div class="container mt-5">
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" id="searchBar" type="text" placeholder="Search...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Title 1</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Title 2</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+    
+    </main>
+    <Footer />
+  </div>
+<BackToTop />
+</div>
+<Scripts />
+<script is:inline>
+document.getElementById('searchBar').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll('.card');
+
+    cards.forEach(function(card) {
+        let title = card.querySelector('.card-title').textContent.toLowerCase();
+        if (title.includes(filter)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+</script>

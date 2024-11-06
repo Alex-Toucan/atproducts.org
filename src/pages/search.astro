@@ -61,16 +61,16 @@ import Card from '../components/games/Card.astro';
 </div>
 <Scripts />
 <script is:inline>
-$('#fullScreenBtn').on('click', function() {
-    let elem = $('#full-screen')[0];
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { // Firefox
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { // IE/Edge
-        elem.msRequestFullscreen();
-    }
+$('#searchBar').on('keyup', function() {
+    let filter = $(this).val().toLowerCase();
+    $('.card').each(function() {
+        let title = $(this).find('.card-title').text().toLowerCase();
+        if (title.includes(filter)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
 });
+
 </script>

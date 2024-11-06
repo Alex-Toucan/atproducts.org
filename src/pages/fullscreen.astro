@@ -25,8 +25,8 @@ import GamePage from '../layouts/games/GamePage.astro';
 </div>
 <Scripts />
 <script is:inline>
-document.getElementById('fullScreenBtn').addEventListener('click', function() {
-    let elem = document.getElementById('full-screen');
+$('#fullScreenBtn').on('click', function() {
+    let elem = $('#full-screen')[0];
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { // Firefox

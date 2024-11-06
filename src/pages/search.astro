@@ -53,17 +53,17 @@ import BackToTop from '../components/BackToTop.astro';
 </div>
 <Scripts />
 <script is:inline>
-document.getElementById('searchBar').addEventListener('keyup', function() {
-    let filter = this.value.toLowerCase();
-    let cards = document.querySelectorAll('.card');
-
-    cards.forEach(function(card) {
-        let title = card.querySelector('.card-title').textContent.toLowerCase();
-        if (title.includes(filter)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
-    });
+document.getElementById('fullScreenBtn').addEventListener('click', function() {
+    let elem = document.getElementById('full-screen');
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
 });
+
 </script>
